@@ -1,0 +1,54 @@
+<body>
+  <div class="container w-50">
+    <div class="card p-5">
+      <div class="card-header text-center text-white">
+        <h5 class="mb-0">CALCULADORA DE NOTAS FINALES</h5>
+      </div>
+      <div class="card-body pb-0">
+        <form [formGroup]="formAlumno" (ngSubmit)="submit()" >
+          <div class="row mb-2">
+            <div class="col-md-2">
+              <label for="inputName" class="col-form-label">Nombre:</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" id="inputName" class="form-control" formControlName="nombre" required>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-2">
+              <label for="inputDNI" class="col-form-label">DNI:</label>
+            </div>
+            <div class="col-md-10">
+              <input type="text" id="inputDNI" class="form-control" formControlName="dni" required>
+            </div>
+          </div>
+          <div class="row mb-2" formGroupName="notas">
+            <div class="col-md-2">
+              <label for="inputNota1" class="col-form-label">Nota 1:</label>
+            </div>
+            <div class="col-md-2">
+              <input type="number" id="inputNota1" class="form-control" formControlName="nota1" min="0" max="10" required> 
+            </div>
+            <div class="col-md-2">
+              <label for="inputNota2" class="col-form-label">Nota 2:</label>
+            </div>
+            <div class="col-md-2">
+              <input type="number" id="inputNota2" class="form-control" formControlName="nota2" min="0" max="10" required>
+            </div>
+            <div class="col-md-2">
+              <label for="number" class="col-form-label">Nota 3:</label>
+            </div>
+            <div class="col-md-2">
+              <input type="number" id="inputNota3" class="form-control" formControlName="nota3" min="0" max="10" required>
+            </div>
+          </div>
+          <button type="submit" class="btn text-white mt-4" [disabled]="formAlumno.invalid">¡Probemos suerte!</button>
+        </form>
+        <div class="mt-4">
+          <p><strong>Resultado:</strong> {{resultado}} </p>
+        </div>
+      </div>
+      
+    </div>    
+  </div>
+</body>

@@ -1,0 +1,10 @@
+<div class="card" style="width: 30rem;margin:1rem" *ngIf="datos!=null">
+    <img src="{{datos.pic}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{datos.name}}</h5>
+        <p class="card-text">
+            {{datos.info}}<br>
+        </p>
+        <a href="#" class="btn btn-primary" (click)="presion()">Otra persona?</a>
+    </div>
+</div>

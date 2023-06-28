@@ -1,0 +1,78 @@
+<header>
+  <button mat-button [matMenuTriggerFor]="units">Units</button>
+  <mat-menu #units="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="leoneed">Leo/Need</button>
+    <button mat-menu-item [matMenuTriggerFor]="vivid">Vivid BAD SQUAD</button>
+    <button mat-menu-item [matMenuTriggerFor]="niigo">25-ji, Nightcord de</button>
+  </mat-menu>
+
+  <mat-menu #leoneed="matMenu">
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Hoshino_Ichika">Hoshino Ichika</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Tenma_Saki">Tenma Saki</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Mochizuki_Honami">Mochizuki Honami</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Hinomori_Shiho">Hinomori Shiho</a>
+  </mat-menu>
+
+  <mat-menu #vivid="matMenu">
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Azusawa_Kohane">Azusawa Kohane</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Shiraishi_An">Shiraishi An</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Shinonome_Akito">Shinonome Akito</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Aoyagi_Toya">Aoyagi Toya</a>
+  </mat-menu>
+
+  <mat-menu #niigo="matMenu">
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Yoisaki_Kanade">Yoisaki Kanade</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Asahina_Mafuyu">Asahina Mafuyu</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Shinonome_Ena">Shinonome Akito</a>
+    <a mat-menu-item href="https://projectsekai.fandom.com/wiki/Akiyama_Mizuki">Akiyama Mizuki</a>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="songs">My favs songs!!</button>
+  <mat-menu #songs="matMenu">
+    <a mat-menu-item href="https://www.youtube.com/watch?v=_GdIO1AANg4">「1」 (Leo/need)</a>
+    <a mat-menu-item href="https://www.youtube.com/watch?v=DaWbq6KeJq4">Beat Eater (Vivid BAD SQUAD)</a>
+    <a mat-menu-item href="https://www.youtube.com/watch?v=2Ii7UBMxWVw">Bug (25-ji, Nightcord de)</a>
+  </mat-menu>
+</header>
+
+<main>
+
+  <div>
+    <h1 class="title">Project Sekai's Database (kinda)</h1>
+    <mat-form-field class="search">
+      <mat-label>Search...</mat-label>
+      <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Character ID </th>
+        <td mat-cell *matCellDef="let character"> {{character.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Full Name </th>
+        <td mat-cell *matCellDef="let character"> {{character.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="unit">
+        <th mat-header-cell *matHeaderCellDef> Unit </th>
+        <td mat-cell *matCellDef="let character"> {{character.unit}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef> Character Color </th>
+        <td mat-cell *matCellDef="let character">
+          <span class="box" [style.background]="character.color"></span>
+          {{character.color}}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>
+  </div>
+
+</main>

@@ -1,0 +1,7 @@
+body {
+    margin: 20px
+}
+
+.card-header, .btn {
+    background-color: #00AA9E;
+}
